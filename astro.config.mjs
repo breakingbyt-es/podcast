@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://breakingbytes.github.io',
+  site: 'https://breakingbyt-es.github.io',
   base: '/podcast',
   vite: {
     plugins: [tailwindcss()]
