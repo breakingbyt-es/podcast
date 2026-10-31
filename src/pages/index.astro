@@ -1,16 +1,153 @@
 ---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import logo from '../assets/logo.jpeg';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const episodes = (await getCollection('episodes')).sort(
+  (a, b) => Number(b.data.episode) - Number(a.data.episode)
+);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Habelas Hailas - Podcast de tecnología en Galicia">
+  <div class="min-h-screen bg-[#0c0c0e] text-[#ededed] selection:bg-emerald-400 selection:text-black">
+    <!-- Header / Nav -->
+    <header class="border-b border-[#222226] bg-[#0c0c0e]/80 backdrop-blur sticky top-0 z-50">
+      <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <Image src={logo} alt="Habelas Hailas Logo" width={72} height={72} format="webp" quality={80} class="w-9 h-9 rounded object-cover border border-[#333]" />
+          <span class="font-bold tracking-tight text-lg text-white">HABELAS<span class="text-emerald-400">HAILAS</span></span>
+        </div>
+        <nav class="hidden sm:flex items-center gap-8 text-sm text-zinc-400">
+          <a href={`${base}#episodios`} class="hover:text-white transition-colors">episodios</a>
+          <a href={`${base}#sobre`} class="hover:text-white transition-colors">sobre</a>
+          <a href={`${base}#suscribir`} class="hover:text-white transition-colors">suscribir</a>
+        </nav>
+        <a href="#episodios" class="bg-emerald-400 hover:bg-emerald-300 text-black font-bold px-4 py-2 rounded text-xs tracking-wider uppercase transition-all">
+          Escuchar
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-24 md:py-36 px-6 max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1 rounded mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        podcast // galicia.tech
+      </div>
+      <h1 class="text-5xl sm:text-7xl font-bold tracking-tight text-white mb-6 uppercase leading-[0.95]">
+        Tecnología gallega <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+          sin filtros.
+        </span>
+      </h1>
+      <p class="text-lg text-zinc-400 mb-10 max-w-xl leading-relaxed font-mono text-sm">
+        // conversaciones con ingenieros, fundadores y constructores de software desde Galicia hacia el mundo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#episodios" class="bg-emerald-400 hover:bg-emerald-300 text-black font-bold px-6 py-3.5 rounded text-sm transition-all text-center uppercase tracking-wider">
+          Ver episodios
+        </a>
+        <a href="#suscribir" class="bg-transparent hover:bg-zinc-900 text-white border border-[#333] font-bold px-6 py-3.5 rounded text-sm transition-all text-center uppercase tracking-wider">
+          Plataformas
+        </a>
+      </div>
+    </section>
+
+    <!-- Episodes Section -->
+    <section id="episodios" class="py-24 px-6 border-t border-[#222226] bg-[#101013]/50">
+      <div class="max-w-5xl mx-auto">
+        <div class="mb-12 flex items-end justify-between">
+          <div>
+            <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">// ARCHIVO</span>
+            <h2 class="text-3xl font-bold text-white mt-1">Episodios</h2>
+          </div>
+          <span class="text-xs font-mono text-zinc-500">Temporada 01</span>
+        </div>
+
+        <div class="space-y-4">
+          {episodes.map((entry) => (
+            <article class="border border-[#222226] hover:border-emerald-400/50 rounded-lg p-6 transition-all bg-[#141418]">
+              <div class="flex flex-col sm:flex-row gap-6 items-start">
+                <Image src={logo} alt={`Episodio ${entry.data.episode}`} width={160} height={160} format="webp" quality={80} class="w-20 h-20 rounded object-cover shrink-0 border border-[#333]" />
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 text-xs font-mono text-zinc-500 mb-2">
+                    <span class="text-emerald-400">EP.{entry.data.episode}</span>
+                    <span>•</span>
+                    <span>{entry.data.duration}</span>
+                    <span>•</span>
+                    <span>{entry.data.date}</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    <a href={`${base}/episodes/${entry.id}`} class="hover:text-emerald-400 transition-colors">{entry.data.title}</a>
+                  </h3>
+                  <p class="text-zinc-400 text-sm mb-4 leading-relaxed font-mono text-xs">
+                    {entry.data.description}
+                  </p>
+                  <div class="flex items-center justify-between border-t border-[#222226] pt-4">
+                    <span class="text-xs font-mono text-zinc-500">INVITADO: {entry.data.guest}</span>
+                    <a href={`${base}/episodes/${entry.id}`} class="text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
+                      [ Ver episodio ]
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 px-6 border-t border-[#222226]">
+      <div class="max-w-5xl mx-auto grid sm:grid-cols-2 gap-12">
+        <div>
+          <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">// MANIFIESTO</span>
+          <h2 class="text-2xl font-bold text-white mt-1 mb-4">Sobre el proyecto</h2>
+          <p class="text-zinc-400 text-sm leading-relaxed mb-4 font-mono text-xs">
+            Habelas Hailas nace para dar voz al ecosistema tech gallego. Conversaciones directas, técnicas y sin adornos sobre código, arquitectura y producto.
+          </p>
+        </div>
+        <div class="border border-[#222226] rounded-lg p-6 bg-[#141418]">
+          <h3 class="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-3">// ESPECIFICACIONES</h3>
+          <ul class="space-y-2 text-xs font-mono text-zinc-400">
+            <li>> Frecuencia: Quincenal</li>
+            <li>> Idioma: Castellano / Gallego</li>
+            <li>> Formato: Entrevista técnica</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe / CTA Section -->
+    <section id="suscribir" class="py-24 px-6 border-t border-[#222226] bg-[#101013]/50 text-center">
+      <div class="max-w-xl mx-auto">
+        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">// ACCESO</span>
+        <h2 class="text-3xl font-bold text-white mt-1 mb-3">Suscríbete</h2>
+        <p class="text-zinc-400 text-sm mb-8 font-mono text-xs">
+          Disponible en todas las plataformas principales.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#" class="border border-[#333] hover:border-emerald-400 text-white px-5 py-2.5 rounded text-xs font-mono uppercase transition-all">
+            Spotify
+          </a>
+          <a href="#" class="border border-[#333] hover:border-emerald-400 text-white px-5 py-2.5 rounded text-xs font-mono uppercase transition-all">
+            Apple Podcasts
+          </a>
+          <a href="#" class="border border-[#333] hover:border-emerald-400 text-white px-5 py-2.5 rounded text-xs font-mono uppercase transition-all">
+            RSS Feed
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#222226] py-12 px-6 text-xs font-mono text-zinc-500">
+      <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span>HABELAS_HAILAS // 2026</span>
+        <span>GALICIA, SPAIN</span>
+      </div>
+    </footer>
+  </div>
+</Layout>
