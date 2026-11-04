@@ -18,41 +18,43 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title={`${entry.data.title} - Habelas Hailas`} description={entry.data.description}>
-  <div class="min-h-screen bg-[#0c0c0e] text-[#ededed] selection:bg-emerald-400 selection:text-black">
-    <header class="border-b border-[#222226] bg-[#0c0c0e]/80 backdrop-blur sticky top-0 z-50">
-      <div class="max-w-3xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href={base + "/"} class="flex items-center gap-3">
-          <Image src={logo} alt="Habelas Hailas Logo" width={72} height={72} format="webp" quality={80} class="w-9 h-9 rounded object-cover border border-[#333]" />
-          <span class="font-bold tracking-tight text-lg text-white">HABELAS<span class="text-emerald-400">HAILAS</span></span>
-        </a>
-        <a href={base + "/#episodios"} class="text-xs font-mono text-zinc-400 hover:text-white uppercase transition-colors">← volver</a>
-      </div>
+  <div class="min-h-screen bg-[#030304] text-[#e5e5e5]">
+    <header class="flex items-center justify-between px-7 py-5 font-['JetBrains_Mono',monospace] text-[11px] tracking-[0.18em] text-[#6b6b70] border-b border-[#1c1c1f]">
+      <span class="inline-flex items-center gap-2 text-[#dc2626]">
+        <span class="w-[6px] h-[6px] rounded-full bg-[#dc2626] shadow-[0_0_8px_#dc2626] animate-[pulse_2.4s_ease-in-out_infinite]"></span>
+        <span class="status-text">SYSTEM ACTIVE</span>
+      </span>
+      <a href={base + "/"} class="flex items-center gap-3 hover:text-[#e5e5e5] transition-colors">
+        <Image src={logo} alt="Habelas Hailas Logo" width={72} height={72} format="webp" quality={80} class="w-9 h-9 object-cover border border-[#1c1c1f]" />
+        <span class="font-semibold tracking-[0.18em] text-[#e5e5e5]">HABELAS&nbsp;HAILAS</span>
+      </a>
+      <a href={base + "/#episodios"} class="hover:text-[#e5e5e5] uppercase transition-colors">← volver</a>
     </header>
 
     <main class="max-w-3xl mx-auto px-6 py-16">
-      <div class="flex items-center gap-3 text-xs font-mono text-zinc-500 mb-4">
-        <span class="text-emerald-400">EP.{entry.data.episode}</span>
+      <div class="flex items-center gap-3 text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70] mb-4 tracking-[0.14em]">
+        <span class="text-[#dc2626]">EP.{entry.data.episode}</span>
         <span>•</span>
         <span>{entry.data.duration}</span>
         <span>•</span>
         <span>{entry.data.date}</span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">{entry.data.title}</h1>
-      <p class="text-zinc-400 text-sm font-mono mb-8">INVITADO: {entry.data.guest}</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-[#e5e5e5] mb-4 leading-tight">{entry.data.title}</h1>
+      <p class="text-[#6b6b70] text-sm font-['JetBrains_Mono',monospace] mb-8 tracking-[0.14em]">INVITADO: {entry.data.guest}</p>
 
-      <div class="prose prose-invert prose-emerald max-w-none font-mono text-sm text-zinc-300">
+      <div class="prose prose-invert max-w-none font-['JetBrains_Mono',monospace] text-sm text-[#e5e5e5] prose-headings:font-semibold prose-headings:text-[#e5e5e5] prose-a:text-[#dc2626] hover:prose-a:text-[#ef4444] prose-strong:text-[#e5e5e5]">
         <Content />
       </div>
 
-      <div class="border-t border-[#222226] mt-12 pt-8">
-        <a href={base + "/#episodios"} class="text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 uppercase tracking-wider">
+      <div class="border-t border-[#1c1c1f] mt-12 pt-8">
+        <a href={base + "/#episodios"} class="text-xs font-['JetBrains_Mono',monospace] font-medium text-[#dc2626] hover:text-[#ef4444] uppercase tracking-[0.14em] border-b border-[#7f1d1d] pb-[2px]">
           [ ← volver a episodios ]
         </a>
       </div>
     </main>
 
-    <footer class="border-t border-[#222226] py-12 px-6 text-xs font-mono text-zinc-500">
+    <footer class="border-t border-[#1c1c1f] py-12 px-6 text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70] tracking-[0.18em]">
       <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <span>HABELAS_HAILAS // 2026</span>
         <span>GALICIA, SPAIN</span>

@@ -11,83 +11,79 @@ const episodes = (await getCollection('episodes')).sort(
 ---
 
 <Layout title="Habelas Hailas - Podcast de tecnología en Galicia">
-  <div class="min-h-screen bg-[#0c0c0e] text-[#ededed] selection:bg-emerald-400 selection:text-black">
+  <div class="min-h-screen bg-[#030304] text-[#e5e5e5]">
     <!-- Header / Nav -->
-    <header class="border-b border-[#222226] bg-[#0c0c0e]/80 backdrop-blur sticky top-0 z-50">
-      <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <Image src={logo} alt="Habelas Hailas Logo" width={72} height={72} format="webp" quality={80} class="w-9 h-9 rounded object-cover border border-[#333]" />
-          <span class="font-bold tracking-tight text-lg text-white">HABELAS<span class="text-emerald-400">HAILAS</span></span>
-        </div>
-        <nav class="hidden sm:flex items-center gap-8 text-sm text-zinc-400">
-          <a href={`${base}#episodios`} class="hover:text-white transition-colors">episodios</a>
-          <a href={`${base}#sobre`} class="hover:text-white transition-colors">sobre</a>
-          <a href={`${base}#suscribir`} class="hover:text-white transition-colors">suscribir</a>
-        </nav>
-        <a href="#episodios" class="bg-emerald-400 hover:bg-emerald-300 text-black font-bold px-4 py-2 rounded text-xs tracking-wider uppercase transition-all">
-          Escuchar
-        </a>
-      </div>
+    <header class="flex items-center justify-between px-7 py-5 font-['JetBrains_Mono',monospace] text-[11px] tracking-[0.18em] text-[#6b6b70]">
+      <span class="inline-flex items-center gap-2 text-[#dc2626]">
+        <span class="w-[6px] h-[6px] rounded-full bg-[#dc2626] shadow-[0_0_8px_#dc2626] animate-[pulse_2.4s_ease-in-out_infinite]"></span>
+        <span class="status-text">SYSTEM ACTIVE</span>
+      </span>
+      <span class="site-id">HABELAS&nbsp;HAILAS</span>
+      <nav class="hidden sm:flex items-center gap-8">
+        <a href={`${base}#episodios`} class="hover:text-[#e5e5e5] transition-colors uppercase">episodios</a>
+        <a href={`${base}#sobre`} class="hover:text-[#e5e5e5] transition-colors uppercase">sobre</a>
+        <a href={`${base}#suscribir`} class="hover:text-[#e5e5e5] transition-colors uppercase">suscribir</a>
+      </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="py-24 md:py-36 px-6 max-w-5xl mx-auto">
-      <div class="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1 rounded mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <div class="inline-flex items-center gap-2 text-xs font-['JetBrains_Mono',monospace] text-[#f8e473] border border-[#1c1c1f] px-3 py-1 mb-6 tracking-[0.18em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#f8e473]"></span>
         podcast // galicia.tech
       </div>
-      <h1 class="text-5xl sm:text-7xl font-bold tracking-tight text-white mb-6 uppercase leading-[0.95]">
+      <h1 class="text-5xl sm:text-7xl font-semibold tracking-tight text-[#e5e5e5] mb-6 uppercase leading-[0.95]">
         Tecnología gallega <br />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+        <span class="text-[#dc2626]">
           sin filtros.
         </span>
       </h1>
-      <p class="text-lg text-zinc-400 mb-10 max-w-xl leading-relaxed font-mono text-sm">
+      <p class="text-lg text-[#6b6b70] mb-10 max-w-xl leading-relaxed font-['JetBrains_Mono',monospace] text-sm">
         // conversaciones con ingenieros, fundadores y constructores de software desde Galicia hacia el mundo.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#episodios" class="bg-emerald-400 hover:bg-emerald-300 text-black font-bold px-6 py-3.5 rounded text-sm transition-all text-center uppercase tracking-wider">
+        <a href="#episodios" class="bg-[#7f1d1d] hover:bg-[#dc2626] text-[#f5f5f5] border border-[#7f1d1d] font-['JetBrains_Mono',monospace] px-6 py-3.5 text-xs tracking-[0.14em] transition-all text-center uppercase">
           Ver episodios
         </a>
-        <a href="#suscribir" class="bg-transparent hover:bg-zinc-900 text-white border border-[#333] font-bold px-6 py-3.5 rounded text-sm transition-all text-center uppercase tracking-wider">
+        <a href="#suscribir" class="bg-transparent hover:bg-[#0a0a0b]/70 text-[#e5e5e5] border border-[#1c1c1f] font-['JetBrains_Mono',monospace] px-6 py-3.5 text-xs tracking-[0.14em] transition-all text-center uppercase">
           Plataformas
         </a>
       </div>
     </section>
 
     <!-- Episodes Section -->
-    <section id="episodios" class="py-24 px-6 border-t border-[#222226] bg-[#101013]/50">
+    <section id="episodios" class="py-24 px-6 border-t border-[#1c1c1f]">
       <div class="max-w-5xl mx-auto">
         <div class="mb-12 flex items-end justify-between">
           <div>
-            <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">// ARCHIVO</span>
-            <h2 class="text-3xl font-bold text-white mt-1">Episodios</h2>
+            <span class="text-xs font-['JetBrains_Mono',monospace] text-[#f8e473] uppercase tracking-[0.22em]">// ARCHIVO</span>
+            <h2 class="text-3xl font-semibold text-[#e5e5e5] mt-1">Episodios</h2>
           </div>
-          <span class="text-xs font-mono text-zinc-500">Temporada 01</span>
+          <span class="text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70]">Temporada 01</span>
         </div>
 
         <div class="space-y-4">
           {episodes.map((entry) => (
-            <article class="border border-[#222226] hover:border-emerald-400/50 rounded-lg p-6 transition-all bg-[#141418]">
+            <article class="border border-[#1c1c1f] hover:border-[#7f1d1d] p-6 transition-all bg-[rgba(10,10,11,0.7)]">
               <div class="flex flex-col sm:flex-row gap-6 items-start">
-                <Image src={logo} alt={`Episodio ${entry.data.episode}`} width={160} height={160} format="webp" quality={80} class="w-20 h-20 rounded object-cover shrink-0 border border-[#333]" />
+                <Image src={logo} alt={`Episodio ${entry.data.episode}`} width={160} height={160} format="webp" quality={80} class="w-20 h-20 object-cover shrink-0 border border-[#1c1c1f]" />
                 <div class="flex-1">
-                  <div class="flex items-center gap-3 text-xs font-mono text-zinc-500 mb-2">
-                    <span class="text-emerald-400">EP.{entry.data.episode}</span>
+                  <div class="flex items-center gap-3 text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70] mb-2 tracking-[0.14em]">
+                    <span class="text-[#dc2626]">EP.{entry.data.episode}</span>
                     <span>•</span>
                     <span>{entry.data.duration}</span>
                     <span>•</span>
                     <span>{entry.data.date}</span>
                   </div>
-                  <h3 class="text-xl font-bold text-white mb-2">
-                    <a href={`${base}/episodes/${entry.id}`} class="hover:text-emerald-400 transition-colors">{entry.data.title}</a>
+                  <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">
+                    <a href={`${base}/episodes/${entry.id}`} class="hover:text-[#dc2626] transition-colors">{entry.data.title}</a>
                   </h3>
-                  <p class="text-zinc-400 text-sm mb-4 leading-relaxed font-mono text-xs">
+                  <p class="text-[#6b6b70] text-sm mb-4 leading-relaxed font-['JetBrains_Mono',monospace] text-xs">
                     {entry.data.description}
                   </p>
-                  <div class="flex items-center justify-between border-t border-[#222226] pt-4">
-                    <span class="text-xs font-mono text-zinc-500">INVITADO: {entry.data.guest}</span>
-                    <a href={`${base}/episodes/${entry.id}`} class="text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <div class="flex items-center justify-between border-t border-[#1c1c1f] pt-4">
+                    <span class="text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70] tracking-[0.14em]">INVITADO: {entry.data.guest}</span>
+                    <a href={`${base}/episodes/${entry.id}`} class="text-xs font-['JetBrains_Mono',monospace] font-medium text-[#dc2626] hover:text-[#ef4444] uppercase tracking-[0.14em] flex items-center gap-1.5 border-b border-[#7f1d1d] pb-[2px]">
                       [ Ver episodio ]
                     </a>
                   </div>
@@ -100,18 +96,18 @@ const episodes = (await getCollection('episodes')).sort(
     </section>
 
     <!-- About Section -->
-    <section id="sobre" class="py-24 px-6 border-t border-[#222226]">
+    <section id="sobre" class="py-24 px-6 border-t border-[#1c1c1f]">
       <div class="max-w-5xl mx-auto grid sm:grid-cols-2 gap-12">
         <div>
-          <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">// MANIFIESTO</span>
-          <h2 class="text-2xl font-bold text-white mt-1 mb-4">Sobre el proyecto</h2>
-          <p class="text-zinc-400 text-sm leading-relaxed mb-4 font-mono text-xs">
+          <span class="text-xs font-['JetBrains_Mono',monospace] text-[#f8e473] uppercase tracking-[0.22em]">// MANIFIESTO</span>
+          <h2 class="text-2xl font-semibold text-[#e5e5e5] mt-1 mb-4">Sobre el proyecto</h2>
+          <p class="text-[#6b6b70] text-sm leading-relaxed mb-4 font-['JetBrains_Mono',monospace] text-xs">
             Habelas Hailas nace para dar voz al ecosistema tech gallego. Conversaciones directas, técnicas y sin adornos sobre código, arquitectura y producto.
           </p>
         </div>
-        <div class="border border-[#222226] rounded-lg p-6 bg-[#141418]">
-          <h3 class="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-3">// ESPECIFICACIONES</h3>
-          <ul class="space-y-2 text-xs font-mono text-zinc-400">
+        <div class="border border-[#1c1c1f] p-6 bg-[rgba(10,10,11,0.7)]">
+          <h3 class="text-sm font-['JetBrains_Mono',monospace] text-[#dc2626] uppercase tracking-[0.18em] mb-3">// ESPECIFICACIONES</h3>
+          <ul class="space-y-2 text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70]">
             <li>> Frecuencia: Quincenal</li>
             <li>> Idioma: Castellano / Gallego</li>
             <li>> Formato: Entrevista técnica</li>
@@ -121,21 +117,21 @@ const episodes = (await getCollection('episodes')).sort(
     </section>
 
     <!-- Subscribe / CTA Section -->
-    <section id="suscribir" class="py-24 px-6 border-t border-[#222226] bg-[#101013]/50 text-center">
+    <section id="suscribir" class="py-24 px-6 border-t border-[#1c1c1f] text-center">
       <div class="max-w-xl mx-auto">
-        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">// ACCESO</span>
-        <h2 class="text-3xl font-bold text-white mt-1 mb-3">Suscríbete</h2>
-        <p class="text-zinc-400 text-sm mb-8 font-mono text-xs">
+        <span class="text-xs font-['JetBrains_Mono',monospace] text-[#f8e473] uppercase tracking-[0.22em]">// ACCESO</span>
+        <h2 class="text-3xl font-semibold text-[#e5e5e5] mt-1 mb-3">Suscríbete</h2>
+        <p class="text-[#6b6b70] text-sm mb-8 font-['JetBrains_Mono',monospace] text-xs">
           Disponible en todas las plataformas principales.
         </p>
         <div class="flex flex-wrap justify-center gap-3">
-          <a href="#" class="border border-[#333] hover:border-emerald-400 text-white px-5 py-2.5 rounded text-xs font-mono uppercase transition-all">
+          <a href="#" class="border border-[#1c1c1f] hover:border-[#dc2626] text-[#e5e5e5] px-5 py-2.5 text-xs font-['JetBrains_Mono',monospace] uppercase tracking-[0.14em] transition-all bg-[rgba(10,10,11,0.7)]">
             Spotify
           </a>
-          <a href="#" class="border border-[#333] hover:border-emerald-400 text-white px-5 py-2.5 rounded text-xs font-mono uppercase transition-all">
+          <a href="#" class="border border-[#1c1c1f] hover:border-[#dc2626] text-[#e5e5e5] px-5 py-2.5 text-xs font-['JetBrains_Mono',monospace] uppercase tracking-[0.14em] transition-all bg-[rgba(10,10,11,0.7)]">
             Apple Podcasts
           </a>
-          <a href="#" class="border border-[#333] hover:border-emerald-400 text-white px-5 py-2.5 rounded text-xs font-mono uppercase transition-all">
+          <a href="#" class="border border-[#1c1c1f] hover:border-[#dc2626] text-[#e5e5e5] px-5 py-2.5 text-xs font-['JetBrains_Mono',monospace] uppercase tracking-[0.14em] transition-all bg-[rgba(10,10,11,0.7)]">
             RSS Feed
           </a>
         </div>
@@ -143,7 +139,7 @@ const episodes = (await getCollection('episodes')).sort(
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-[#222226] py-12 px-6 text-xs font-mono text-zinc-500">
+    <footer class="border-t border-[#1c1c1f] py-12 px-6 text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70] tracking-[0.18em]">
       <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <span>HABELAS_HAILAS // 2026</span>
         <span>GALICIA, SPAIN</span>
