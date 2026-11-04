@@ -78,12 +78,12 @@ const episodes = (await getCollection('episodes')).sort(
                   <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">
                     <a href={`${base}/episodes/${entry.id}`} class="hover:text-[#dc2626] transition-colors">{entry.data.title}</a>
                   </h3>
-                  <p class="text-[#6b6b70] text-sm mb-4 leading-relaxed font-['JetBrains_Mono',monospace] text-xs">
+                  <p class="text-[#6b6b70] mb-4 leading-relaxed font-['JetBrains_Mono',monospace] text-xs sm:text-sm">
                     {entry.data.description}
                   </p>
-                  <div class="flex items-center justify-between border-t border-[#1c1c1f] pt-4">
+                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-[#1c1c1f] pt-4">
                     <span class="text-xs font-['JetBrains_Mono',monospace] text-[#6b6b70] tracking-[0.14em]">INVITADO: {entry.data.guest}</span>
-                    <a href={`${base}/episodes/${entry.id}`} class="text-xs font-['JetBrains_Mono',monospace] font-medium text-[#dc2626] hover:text-[#ef4444] uppercase tracking-[0.14em] flex items-center gap-1.5 border-b border-[#7f1d1d] pb-[2px]">
+                    <a href={`${base}/episodes/${entry.id}`} class="text-xs font-['JetBrains_Mono',monospace] font-medium text-[#dc2626] hover:text-[#ef4444] uppercase tracking-[0.14em] inline-flex items-center gap-1.5 border-b border-[#7f1d1d] pb-[2px] self-start sm:self-auto">
                       [ Ver episodio ]
                     </a>
                   </div>
